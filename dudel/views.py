@@ -800,7 +800,7 @@ def poll_vote(slug):
             db.session.commit()
 
             if current_user.is_authenticated() and current_user.autowatch:
-                return redirect(url_for("poll_watch", slug=poll.slug, watch="yes", next=poll.get_url()))
+                return redirect(url_for("poll_watch", slug=poll.slug, watch="yes", mac=poll.get_mac(), next=poll.get_url()))
             else:
                 return redirect(poll.get_url())
 
